@@ -1,0 +1,181 @@
+/* ================================
+   FONTS
+================================ */
+@font-face {
+  font-family: 'BebasNeueSemiRounded';
+  src: url('../fonts/Bebas-Neue-SemiRounded-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BebasNeueProBold';
+  src: url('../fonts/Bebas-Neue-Pro-Bold.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BebasNeueProMiddle';
+  src: url('../fonts/Bebas-Neue-Pro-Middle.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'BebasNeueProBookItalic';
+  src: url('../fonts/Bebas-Neue-Pro-Book-Italic.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ================================
+   BASE / RESET
+================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  max-width: 480px;       /* Mobile-only: nie breiter als 480px */
+  margin: 0 auto;
+  background-color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  overflow-x: hidden;
+}
+
+/* ================================
+   SEKTION 1: HERO IMAGE
+================================ */
+.hero {
+  width: 100%;
+  display: block;
+  line-height: 0;           /* Kein Whitespace unter dem Bild */
+  background-color: #e8d9f0; /* Fallback-Farbe, solange Bild lädt */
+}
+
+.hero__img {
+  width: 100%;
+  height: auto;
+  display: block;
+  image-rendering: -webkit-optimize-contrast; /* Schärfe auf iOS */
+  image-rendering: crisp-edges;               /* Schärfe auf Android */
+}
+
+/* ================================
+   SEKTION 2: TITEL
+================================ */
+.titel {
+  width: 100%;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 24px 24px;
+  gap: 14px;
+}
+
+.titel__city-img {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+  display: block;
+}
+
+.titel__badge {
+  display: block;
+  width: calc(100% - 60px);
+  max-width: 320px;
+  background-color: #c9aee0;
+  color: #ffffff;
+  font-family: 'BebasNeueSemiRounded', Arial, sans-serif;
+  font-size: 25px;
+  text-align: center;
+  letter-spacing: 0.1em;
+  padding: 16px 12px;
+  border-radius: 12px;
+  text-decoration: none;
+}
+
+/* ================================
+   SEKTION 3: MENU
+================================ */
+.menu {
+  width: 100%;
+  background-color: #dac4dc;
+  padding: 32px 24px 40px;
+  text-align: center;
+}
+
+.menu__title {
+  font-family: 'BebasNeueSemiRounded', sans-serif;
+  font-size: 25px;
+  color: #ffffff;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+
+.menu__subtitle {
+  font-family: 'BebasNeueProBookItalic', sans-serif;
+  font-size: 10px;
+  color: #ffffff;
+  line-height: 1.5;
+  margin-bottom: 28px;
+  word-wrap: break-word;
+}
+
+.menu__category {
+  font-family: 'BebasNeueSemiRounded', sans-serif;
+  font-size: 20px;
+  color: #ffffff;
+  letter-spacing: 0.1em;
+  margin-top: 28px;
+  margin-bottom: 14px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.menu__item-title {
+  font-family: 'BebasNeueProBold', sans-serif;
+  font-size: 18px;
+  color: #ffffff;
+  letter-spacing: 0.05em;
+  margin-top: 14px;
+  margin-bottom: 4px;
+  word-wrap: break-word;
+}
+
+.menu__item-text {
+  font-family: 'BebasNeueProMiddle', sans-serif;
+  font-size: 14px;
+  color: #ffffff;
+  line-height: 1.5;
+  margin-bottom: 4px;
+  word-wrap: break-word;
+}
+
+.menu__footer-note {
+  font-family: 'BebasNeueProBookItalic', sans-serif;
+  font-size: 10px;
+  color: #ffffff;
+  line-height: 1.5;
+  margin-top: 32px;
+  word-wrap: break-word;
+}
+
+
+/* ================================
+   SEKTION 4: FOOTER  (folgt)
+================================ */
