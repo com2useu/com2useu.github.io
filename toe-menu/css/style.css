@@ -83,7 +83,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 18px 24px 24px;
+  padding: 18px 24px 36px;
   gap: 14px;
 }
 
@@ -98,7 +98,7 @@ body {
   display: block;
   width: calc(100% - 60px);
   max-width: 320px;
-  background-color: #c9aee0;
+  background-color: #dac4dc;
   color: #ffffff;
   font-family: 'BebasNeueSemiRounded', Arial, sans-serif;
   font-size: 25px;
@@ -177,5 +177,25 @@ body {
 
 
 /* ================================
-   SEKTION 4: FOOTER  (folgt)
+   SEKTION 4: FOOTER
 ================================ */
+.footer {
+  width: 100%;
+  background-color: #dac4dc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 24px 40px;
+  gap: 20px;
+}
+
+.footer__logo {
+  display: block;
+  width: 160px;
+  height: auto;
+  filter: brightness(0) invert(1);
+}
+
+.footer__logo--com2us {
+  width: 90px;
+}
