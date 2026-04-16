@@ -1,201 +1,359 @@
-/* ================================
-   FONTS
-================================ */
+/* ============================================================
+   SUMMONERS WAR: TOUR OF EUROPE
+   Mobile Event Menu – Stylesheet
+
+   TABLE OF CONTENTS:
+   1. Fonts
+   2. Design Tokens (CSS Custom Properties)
+   3. Reset & Base
+   4. Section 1 – Hero
+   5. Section 2 – Title
+   6. Section 3 – Menu
+   7. Section 4 – Footer
+============================================================ */
+
+
+/* ============================================================
+   1. FONTS
+   All font files are located in /fonts/
+   font-display: swap → prevents invisible text while fonts load
+============================================================ */
+
 @font-face {
   font-family: 'BebasNeueSemiRounded';
   src: url('../fonts/Bebas-Neue-SemiRounded-Regular.woff2') format('woff2');
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'BebasNeueProBold';
+  font-family: 'BebasNeuePro';
   src: url('../fonts/Bebas-Neue-Pro-Bold.woff2') format('woff2');
-  font-weight: normal;
+  font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'BebasNeueProMiddle';
+  font-family: 'BebasNeuePro';
   src: url('../fonts/Bebas-Neue-Pro-Middle.woff2') format('woff2');
-  font-weight: normal;
+  font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'BebasNeueProBookItalic';
-  src: url('../fonts/Bebas-Neue-Pro-Book-Italic.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
+  font-family: 'BebasNeuePro';
+  src: url('../fonts/Bebas-Neue-Pro-Bold-Italic.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
   font-display: swap;
 }
 
-/* ================================
-   BASE / RESET
-================================ */
-*, *::before, *::after {
+
+/* ============================================================
+   2. DESIGN TOKENS
+   All colors, spacing and typography values defined centrally.
+   → To change colors: update only these variables.
+============================================================ */
+
+:root {
+  /* Colors */
+  --color-white:        #ffffff;
+  --color-bg-light:     #ffffff;
+  --color-bg-brand:     #dac4dc;
+  --color-bg-hero:      #e8d9f0; /* Fallback color while hero image loads */
+
+  /* Typography */
+  --font-rounded:       'BebasNeueSemiRounded', sans-serif;
+  --font-pro:           'BebasNeuePro', sans-serif;
+
+  --size-menu-title:    48px;
+  --size-menu-category: 42px;
+  --size-item-title:    32px;
+  --size-item-text:     24px;
+  --size-subtitle:      20px;
+  --size-btn:           25px;
+
+  --tracking-wide:      0.1em;
+  --tracking-normal:    0.05em;
+
+  /* Spacing */
+  --space-xs:   8px;
+  --space-sm:   14px;
+  --space-md:   24px;
+  --space-lg:   32px;
+  --space-xl:   40px;
+
+  /* Components */
+  --btn-radius:         12px;
+  --btn-shadow:         0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ============================================================
+   3. RESET & BASE
+============================================================ */
+
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 html {
-  font-size: 16px;
+  /* Prevents automatic font size adjustment on iOS/Android */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
 
 body {
-  max-width: 480px;       /* Mobile-only: nie breiter als 480px */
-  margin: 0 auto;
-  background-color: #ffffff;
-  font-family: 'Arial', sans-serif;
+  /* Mobile-only: page never exceeds 480px wide */
+  max-width: 480px;
+  margin-inline: auto;
+  background-color: var(--color-bg-light);
+  font-family: var(--font-pro);
   overflow-x: hidden;
 }
 
-/* ================================
-   SEKTION 1: HERO IMAGE
-================================ */
-.hero {
-  width: 100%;
+img {
   display: block;
-  line-height: 0;           /* Kein Whitespace unter dem Bild */
-  background-color: #e8d9f0; /* Fallback-Farbe, solange Bild lädt */
+  max-width: 100%;
+  height: auto;
 }
 
-.hero__img {
+
+/* ============================================================
+   4. SECTION 1 – HERO
+   → Image: images/hero.png + hero@2x.png
+============================================================ */
+
+.s-hero {
+  width: 100%;
+  line-height: 0;
+  background-color: var(--color-bg-hero);
+}
+
+.s-hero__img {
   width: 100%;
   height: auto;
-  display: block;
-  image-rendering: -webkit-optimize-contrast; /* Schärfe auf iOS */
-  image-rendering: crisp-edges;               /* Schärfe auf Android */
+  /* Maximum sharpness on retina displays */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
 }
 
-/* ================================
-   SEKTION 2: TITEL
-================================ */
-.titel {
-  width: 100%;
-  background-color: #ffffff;
+
+/* ============================================================
+   5. SECTION 2 – TITLE
+   → City image: images/city.png + city@2x.png
+   → Buttons: update color and label directly in HTML
+============================================================ */
+
+.s-titel {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 18px 24px 36px;
-  gap: 14px;
+  padding: 18px var(--space-md) 36px;
+  gap: var(--space-sm);
+  background-color: var(--color-bg-light);
 }
 
-.titel__city-img {
+.s-titel__city {
   width: 100%;
   max-width: 320px;
-  height: auto;
-  display: block;
 }
 
-.titel__badge {
+.s-titel__btn {
   display: block;
   width: calc(100% - 60px);
   max-width: 320px;
-  background-color: #dac4dc;
-  color: #ffffff;
-  font-family: 'BebasNeueSemiRounded', Arial, sans-serif;
-  font-size: 25px;
-  text-align: center;
-  letter-spacing: 0.1em;
   padding: 16px 12px;
-  border-radius: 12px;
+  background-color: var(--color-bg-brand);
+  color: var(--color-white);
+  font-family: var(--font-rounded);
+  font-size: var(--size-btn);
+  font-weight: 400;
+  text-align: center;
   text-decoration: none;
+  letter-spacing: var(--tracking-wide);
+  border-radius: var(--btn-radius);
+  box-shadow: var(--btn-shadow);
+  /* Subtle feedback on tap */
+  transition: opacity 0.15s ease;
 }
 
-/* ================================
-   SEKTION 3: MENU
-================================ */
-.menu {
+.s-titel__btn:active {
+  opacity: 0.8;
+}
+
+
+/* ============================================================
+   6. SECTION 3 – MENU
+   → Edit all text directly in the HTML
+   → Add new category: copy an <h3 class="s-menu__category"> block
+   → Add new item: copy a <div class="s-menu__item"> block
+============================================================ */
+
+.s-menu {
   width: 100%;
-  background-color: #dac4dc;
-  padding: 32px 24px 40px;
+  padding: var(--space-lg) var(--space-md) var(--space-xl);
+  background-color: var(--color-bg-brand);
+  text-align: center;
+  color: var(--color-white);
+}
+
+/* "MENU" main heading */
+.s-menu__title {
+  font-family: var(--font-rounded);
+  font-size: var(--size-menu-title);
+  font-weight: 400;
+  letter-spacing: var(--tracking-wide);
+  margin-bottom: var(--space-xs);
+}
+
+/* Small italic text below title and at the bottom */
+.s-menu__subtitle,
+.s-menu__note {
+  font-family: var(--font-pro);
+  font-size: var(--size-subtitle);
+  font-weight: 700;
+  font-style: italic;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+.s-menu__subtitle {
+  margin-bottom: var(--space-md);
+}
+
+.s-menu__note {
+  margin-top: var(--space-xl);
+}
+
+/* Category heading (e.g. "BOISSONS", "LES BURGERS") */
+.s-menu__category {
+  font-family: var(--font-rounded);
+  font-size: var(--size-menu-category);
+  font-weight: 400;
+  letter-spacing: var(--tracking-wide);
+  margin-top: 36px;
+  margin-bottom: 18px;
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
+}
+
+/* Item container (title + description together) */
+.s-menu__item {
+  margin-top: 22px;
+}
+
+/* Item heading (e.g. "JUS DE FRUITS") */
+.s-menu__item-title {
+  font-family: var(--font-pro);
+  font-size: var(--size-item-title);
+  font-weight: 700;
+  letter-spacing: var(--tracking-normal);
+  margin-bottom: var(--space-xs);
+  overflow-wrap: break-word;
+}
+
+/* Item description */
+.s-menu__item-text {
+  font-family: var(--font-pro);
+  font-size: var(--size-item-text);
+  font-weight: 500;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+}
+
+
+/* ============================================================
+   7. SECTION 4 – SOCIAL MEDIA
+   → Icons: replace SVG files in /images/
+   → Icon size: update --social-icon-size variable
+============================================================ */
+
+.s-social {
+  width: 100%;
+  padding: var(--space-xl) var(--space-md);
+  background-color: var(--color-bg-brand);
   text-align: center;
 }
 
-.menu__title {
-  font-family: 'BebasNeueSemiRounded', sans-serif;
-  font-size: 25px;
-  color: #ffffff;
-  letter-spacing: 0.1em;
-  margin-bottom: 6px;
-}
-
-.menu__subtitle {
-  font-family: 'BebasNeueProBookItalic', sans-serif;
-  font-size: 10px;
-  color: #ffffff;
-  line-height: 1.5;
-  margin-bottom: 28px;
-  word-wrap: break-word;
-}
-
-.menu__category {
-  font-family: 'BebasNeueSemiRounded', sans-serif;
-  font-size: 20px;
-  color: #ffffff;
-  letter-spacing: 0.1em;
-  margin-top: 28px;
-  margin-bottom: 14px;
+.s-social__title {
+  font-family: var(--font-pro);
+  font-size: var(--size-item-title);
+  font-weight: 700;
+  letter-spacing: var(--tracking-normal);
+  color: var(--color-white);
+  margin-bottom: var(--space-lg);
   text-decoration: underline;
-  text-underline-offset: 4px;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 1px;
 }
 
-.menu__item-title {
-  font-family: 'BebasNeueProBold', sans-serif;
-  font-size: 18px;
-  color: #ffffff;
-  letter-spacing: 0.05em;
-  margin-top: 14px;
-  margin-bottom: 4px;
-  word-wrap: break-word;
-}
-
-.menu__item-text {
-  font-family: 'BebasNeueProMiddle', sans-serif;
-  font-size: 14px;
-  color: #ffffff;
-  line-height: 1.5;
-  margin-bottom: 4px;
-  word-wrap: break-word;
-}
-
-.menu__footer-note {
-  font-family: 'BebasNeueProBookItalic', sans-serif;
-  font-size: 10px;
-  color: #ffffff;
-  line-height: 1.5;
-  margin-top: 32px;
-  word-wrap: break-word;
-}
-
-
-/* ================================
-   SEKTION 4: FOOTER
-================================ */
-.footer {
-  width: 100%;
-  background-color: #dac4dc;
+.s-social__icons {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  padding: 0 24px 40px;
-  gap: 20px;
+  gap: clamp(12px, 4vw, 24px);
 }
 
-.footer__logo {
-  display: block;
-  width: 160px;
-  height: auto;
+.s-social__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: opacity 0.15s ease;
+}
+
+.s-social__link:active {
+  opacity: 0.7;
+}
+
+.s-social__icon {
+  width: clamp(44px, 11vw, 60px);
+  height: clamp(44px, 11vw, 60px);
+  /* Tints SVG white regardless of original color */
   filter: brightness(0) invert(1);
 }
 
-.footer__logo--com2us {
+
+/* ============================================================
+   8. SECTION 5 – FOOTER
+   → Logos: images/logo-summoners-war.svg + logo-com2us.svg
+   → Logos are tinted white via CSS filter
+   → To resize: update .s-footer__logo--sw and --com2us widths
+============================================================ */
+
+.s-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 var(--space-md) var(--space-xl);
+  gap: 20px;
+  background-color: var(--color-bg-brand);
+}
+
+.s-footer__link {
+  display: block;
+  line-height: 0;
+}
+
+.s-footer__logo {
+  /* Tints SVG white regardless of original color */
+  filter: brightness(0) invert(1);
+  height: auto;
+}
+
+.s-footer__logo--sw {
+  width: 160px;
+}
+
+.s-footer__logo--com2us {
   width: 90px;
 }

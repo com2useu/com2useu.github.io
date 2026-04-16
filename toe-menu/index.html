@@ -1,91 +1,223 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>SWSA – Paris Menu</title>
+
+  <!-- ============================================================
+    SUMMONERS WAR: TOUR OF EUROPE
+    Mobile Event Menu Page
+
+    STRUCTURE:
+      1. Hero       → images/hero.png + hero@2x.png
+      2. Title      → images/city.png + city@2x.png
+      3. Menu       → Plain text, fonts loaded via @font-face
+      4. Footer     → images/logo-summoners-war.svg, logo-com2us.svg
+
+    TO UPDATE CONTENT:
+      - Swap images: replace files in /images/ (keep filenames the same)
+      - Edit text: update directly in the HTML body below
+      - Change links: update href attributes on <a> tags
+  ============================================================ -->
+
+  <title>Summoners War – Tour of Europe · Paris</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
+
 <body>
 
-  <!-- ===================== -->
-  <!-- SEKTION 1: HERO IMAGE -->
-  <!-- ===================== -->
-  <section class="hero">
+  <!-- ============================================================
+    SECTION 1: HERO IMAGE
+    → Swap image: replace hero.png + hero@2x.png in /images/
+    → Update width/height to match new image dimensions (prevents layout shift)
+  ============================================================ -->
+  <section class="s-hero">
     <img
       src="images/hero.png"
       srcset="images/hero.png 1x, images/hero@2x.png 2x"
       alt="Summoners War Tour of Europe – Paris"
-      class="hero__img"
+      class="s-hero__img"
       width="390"
       height="460"
+      loading="eager"
+      decoding="async"
     />
   </section>
 
-  <!-- ===================== -->
-  <!-- SEKTION 2: TITEL     -->
-  <!-- ===================== -->
-  <section class="titel">
+
+  <!-- ============================================================
+    SECTION 2: TITLE
+    → Swap city image: replace city.png + city@2x.png in /images/
+    → Update button labels and links directly below
+  ============================================================ -->
+  <section class="s-titel">
+
+    <!-- City name as image (custom font) -->
     <img
       src="images/city.png"
       srcset="images/city.png 1x, images/city@2x.png 2x"
       alt="Paris"
-      class="titel__city-img"
+      class="s-titel__city"
       width="342"
       height="80"
+      loading="eager"
+      decoding="async"
     />
-    <a href="https://forms.gle/mb6EynsDam2GENsE6" class="titel__badge">TOMBOLA</a>
-    <a href="https://forms.gle/fTKnccDUmbNc1Td18" class="titel__badge">RAKAN EVENT</a>
-  </section>
-  <!-- ===================== -->
-  <!-- SEKTION 3: MENU      -->
-  <!-- ===================== -->
-  <section class="menu">
 
-    <h2 class="menu__title">MENU</h2>
-    <p class="menu__subtitle">LISTE DES BOISSONS ET BURGERS DISPONIBLES AVEC LES COUPONS</p>
+    <!-- Event buttons → update href to change destination -->
+    <a
+      href="https://forms.gle/mb6EynsDam2GENsE6"
+      class="s-titel__btn"
+      target="_blank"
+      rel="noopener noreferrer"
+    >TOMBOLA</a>
 
-    <!-- BOISSONS -->
-    <h3 class="menu__category">BOISSONS</h3>
-
-    <p class="menu__item-title">JUS DE FRUITS</p>
-    <p class="menu__item-text">Orange | Ananas | Pomme | Cranberry</p>
-
-    <p class="menu__item-title">SOFT</p>
-    <p class="menu__item-text">Pepsi | Pepsi Max | 7UP | Orangina | Ginger Beer | Schweppes Tonic | Lipton Ice Tea</p>
-
-    <p class="menu__item-title">BOUTEILLES</p>
-    <p class="menu__item-text">Red Bull (Energy, Sugar Free, Red Edition Pastèque) (25cl) | Eau Minérale (50cl) | Perrier (33cl) | Pepsi / Pepsi Max (33cl)</p>
-
-    <!-- LES BURGERS -->
-    <h3 class="menu__category">LES BURGERS</h3>
-
-    <p class="menu__item-title">VEGGIE CLASSIC</p>
-    <p class="menu__item-text">Burger végétarien! Steak végétal grillé garni de fromage cheddar fondu et ketchup.</p>
-
-    <p class="menu__item-title">FRIED CHICKEN SANDWICH</p>
-    <p class="menu__item-text">L'authenique crispy american fried chicken! Poulet croustillant frit avec un coleslaw et notre mayo à l'ail maison.</p>
-
-    <p class="menu__item-title">THE HOUSE CLASIC</p>
-    <p class="menu__item-text">Notre burger classique servi avec un steak de boeuf grillé à la perfection, fromage cheddar fondu et ketchup.</p>
-
-    <p class="menu__footer-note">CONSULTEZ LA CARTE DE L'ÉTABLISSEMENT POUR VOIR LE RESTE DU MENU</p>
+    <a
+      href="https://forms.gle/fTKnccDUmbNc1Td18"
+      class="s-titel__btn"
+      target="_blank"
+      rel="noopener noreferrer"
+    >RAKAN EVENT</a>
 
   </section>
-  <!-- ===================== -->
-  <!-- SEKTION 4: FOOTER    -->
-  <!-- ===================== -->
-  <footer class="footer">
-    <img
-      src="images/logo-summoners-war.svg"
-      alt="Summoners War"
-      class="footer__logo"
-    />
-    <img
-      src="images/logo-com2us.svg"
-      alt="com2us"
-      class="footer__logo footer__logo--com2us"
-    />
+
+
+  <!-- ============================================================
+    SECTION 3: MENU
+    → Edit text directly here
+    → Add new category: copy an <h3 class="s-menu__category"> block
+    → Add new item: copy a <div class="s-menu__item"> block
+  ============================================================ -->
+  <section class="s-menu">
+
+    <h2 class="s-menu__title">MENU</h2>
+    <p class="s-menu__subtitle">
+      Liste des boissons et burgers disponibles avec les coupons
+    </p>
+
+
+    <!-- CATEGORY: BOISSONS -->
+    <h3 class="s-menu__category">Boissons</h3>
+
+    <div class="s-menu__item">
+      <p class="s-menu__item-title">Jus de Fruits</p>
+      <p class="s-menu__item-text">Orange | Ananas | Pomme | Cranberry</p>
+    </div>
+
+    <div class="s-menu__item">
+      <p class="s-menu__item-title">Soft</p>
+      <p class="s-menu__item-text">Pepsi | Pepsi Max | 7UP | Orangina | Ginger Beer | Schweppes Tonic | Lipton Ice Tea</p>
+    </div>
+
+    <div class="s-menu__item">
+      <p class="s-menu__item-title">Bouteilles</p>
+      <p class="s-menu__item-text">Red Bull (Energy, Sugar Free, Red Edition Pastèque) (25cl) | Eau Minérale (50cl) | Perrier (33cl) | Pepsi / Pepsi Max (33cl)</p>
+    </div>
+
+
+    <!-- CATEGORY: LES BURGERS -->
+    <h3 class="s-menu__category">Les Burgers</h3>
+
+    <div class="s-menu__item">
+      <p class="s-menu__item-title">Veggie Classic</p>
+      <p class="s-menu__item-text">Burger végétarien ! Steak végétal grillé garni de fromage cheddar fondu et ketchup.</p>
+    </div>
+
+    <div class="s-menu__item">
+      <p class="s-menu__item-title">Fried Chicken Sandwich</p>
+      <p class="s-menu__item-text">L'authentique crispy american fried chicken ! Poulet croustillant frit avec un coleslaw et notre mayo à l'ail maison.</p>
+    </div>
+
+    <div class="s-menu__item">
+      <p class="s-menu__item-title">The House Classic</p>
+      <p class="s-menu__item-text">Notre burger classique servi avec un steak de boeuf grillé à la perfection, fromage cheddar fondu et ketchup.</p>
+    </div>
+
+
+    <p class="s-menu__note">
+      Consultez la carte de l'établissement pour voir le reste du menu
+    </p>
+
+  </section>
+
+
+  <!-- ============================================================
+    SECTION 4: SOCIAL MEDIA
+    → Update links: change href attributes
+    → Swap icons: replace SVG files in /images/
+    → Icon order (left to right): instagram, discord, tiktok, twitter, facebook
+  ============================================================ -->
+  <section class="s-social">
+
+    <p class="s-social__title">SUIVEZ-NOUS SUR</p>
+
+    <div class="s-social__icons">
+
+      <a href="https://www.instagram.com/summonerswar_fr/" class="s-social__link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+        <img src="images/instagram.svg" alt="Instagram" class="s-social__icon" />
+      </a>
+
+      <a href="https://discord.gg/swofficial" class="s-social__link" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+        <img src="images/discord.svg" alt="Discord" class="s-social__icon" />
+      </a>
+
+      <a href="https://www.tiktok.com/@summonerswar_fr" class="s-social__link" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+        <img src="images/TikTok.svg" alt="TikTok" class="s-social__icon" />
+      </a>
+
+      <a href="https://x.com/summonerswar_FR" class="s-social__link" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X">
+        <img src="images/twitter.svg" alt="Twitter / X" class="s-social__icon" />
+      </a>
+
+      <a href="https://www.facebook.com/Summonersfr" class="s-social__link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+        <img src="images/facebook.svg" alt="Facebook" class="s-social__icon" />
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- ============================================================
+    SECTION 5: FOOTER
+    → Swap logos: replace SVG files in /images/
+    → Update links: change href attributes
+  ============================================================ -->
+  <footer class="s-footer">
+
+    <a
+      href=" https://summonerswar.com/12thanniv"
+      class="s-footer__link"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Summoners War Website"
+    >
+      <img
+        src="images/logo-summoners-war.svg"
+        alt="Summoners War"
+        class="s-footer__logo s-footer__logo--sw"
+        loading="lazy"
+        decoding="async"
+      />
+    </a>
+
+    <a
+      href="https://www.com2us.com/en"
+      class="s-footer__link"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="com2us Website"
+    >
+      <img
+        src="images/logo-com2us.svg"
+        alt="com2us"
+        class="s-footer__logo s-footer__logo--com2us"
+        loading="lazy"
+        decoding="async"
+      />
+    </a>
+
   </footer>
 
 </body>
