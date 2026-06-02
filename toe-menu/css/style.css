@@ -4,19 +4,20 @@
 
    TABLE OF CONTENTS:
    1. Fonts
-   2. Design Tokens (CSS Custom Properties)
+   2. Design Tokens
    3. Reset & Base
    4. Section 1 – Hero
    5. Section 2 – Title
    6. Section 3 – Menu
-   7. Section 4 – Footer
+   7. Section 4 – Schedule
+   8. Section 5 – Banner
+   9. Section 6 – Social
+  10. Section 7 – Footer
 ============================================================ */
 
 
 /* ============================================================
    1. FONTS
-   All font files are located in /fonts/
-   font-display: swap → prevents invisible text while fonts load
 ============================================================ */
 
 @font-face {
@@ -54,16 +55,14 @@
 
 /* ============================================================
    2. DESIGN TOKENS
-   All colors, spacing and typography values defined centrally.
-   → To change colors: update only these variables.
 ============================================================ */
 
 :root {
   /* Colors */
   --color-white:        #ffffff;
   --color-bg-light:     #ffffff;
-  --color-bg-brand:     #dac4dc;
-  --color-bg-hero:      #e8d9f0; /* Fallback color while hero image loads */
+  --color-bg-brand:     #afc538;
+  --color-bg-hero:      #afc538;
 
   /* Typography */
   --font-rounded:       'BebasNeueSemiRounded', sans-serif;
@@ -87,8 +86,8 @@
   --space-xl:   40px;
 
   /* Components */
-  --btn-radius:         12px;
-  --btn-shadow:         0 2px 8px rgba(0, 0, 0, 0.15);
+  --btn-radius: 12px;
+  --btn-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -105,13 +104,11 @@
 }
 
 html {
-  /* Prevents automatic font size adjustment on iOS/Android */
   -webkit-text-size-adjust: 100%;
   text-size-adjust: 100%;
 }
 
 body {
-  /* Mobile-only: page never exceeds 480px wide */
   max-width: 480px;
   margin-inline: auto;
   background-color: var(--color-bg-light);
@@ -128,7 +125,6 @@ img {
 
 /* ============================================================
    4. SECTION 1 – HERO
-   → Image: images/hero.png + hero@2x.png
 ============================================================ */
 
 .s-hero {
@@ -140,7 +136,6 @@ img {
 .s-hero__img {
   width: 100%;
   height: auto;
-  /* Maximum sharpness on retina displays */
   image-rendering: -webkit-optimize-contrast;
   image-rendering: crisp-edges;
 }
@@ -148,15 +143,13 @@ img {
 
 /* ============================================================
    5. SECTION 2 – TITLE
-   → City image: images/city.png + city@2x.png
-   → Buttons: update color and label directly in HTML
 ============================================================ */
 
 .s-titel {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 18px var(--space-md) 36px;
+  padding: 0 var(--space-md) 36px;
   gap: var(--space-sm);
   background-color: var(--color-bg-light);
 }
@@ -181,7 +174,6 @@ img {
   letter-spacing: var(--tracking-wide);
   border-radius: var(--btn-radius);
   box-shadow: var(--btn-shadow);
-  /* Subtle feedback on tap */
   transition: opacity 0.15s ease;
 }
 
@@ -192,29 +184,27 @@ img {
 
 /* ============================================================
    6. SECTION 3 – MENU
-   → Edit all text directly in the HTML
-   → Add new category: copy an <h3 class="s-menu__category"> block
-   → Add new item: copy a <div class="s-menu__item"> block
 ============================================================ */
 
 .s-menu {
-  width: 100%;
+  width: calc(100% - 32px);
+  margin: 0 16px;
   padding: var(--space-lg) var(--space-md) var(--space-xl);
   background-color: var(--color-bg-brand);
   text-align: center;
   color: var(--color-white);
+  border-radius: var(--btn-radius);
+  margin-bottom: var(--space-xl);
 }
 
-/* "MENU" main heading */
 .s-menu__title {
   font-family: var(--font-rounded);
   font-size: var(--size-menu-title);
   font-weight: 400;
   letter-spacing: var(--tracking-wide);
-  margin-bottom: var(--space-xs);
+  margin-bottom: 2px;
 }
 
-/* Small italic text below title and at the bottom */
 .s-menu__subtitle,
 .s-menu__note {
   font-family: var(--font-pro);
@@ -233,7 +223,6 @@ img {
   margin-top: var(--space-xl);
 }
 
-/* Category heading (e.g. "BOISSONS", "LES BURGERS") */
 .s-menu__category {
   font-family: var(--font-rounded);
   font-size: var(--size-menu-category);
@@ -246,12 +235,10 @@ img {
   text-decoration-thickness: 1px;
 }
 
-/* Item container (title + description together) */
 .s-menu__item {
   margin-top: 22px;
 }
 
-/* Item heading (e.g. "JUS DE FRUITS") */
 .s-menu__item-title {
   font-family: var(--font-pro);
   font-size: var(--size-item-title);
@@ -261,7 +248,6 @@ img {
   overflow-wrap: break-word;
 }
 
-/* Item description */
 .s-menu__item-text {
   font-family: var(--font-pro);
   font-size: var(--size-item-text);
@@ -270,18 +256,115 @@ img {
   overflow-wrap: break-word;
 }
 
+/* Semantic divider between menu items – replaces the old modifier class on <p> */
+.s-menu__divider {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
 
 /* ============================================================
-   7. SECTION 4 – SOCIAL MEDIA
-   → Icons: replace SVG files in /images/
-   → Icon size: update --social-icon-size variable
+   7. SECTION 4 – SCHEDULE
+============================================================ */
+
+.s-schedule__list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: var(--space-md);
+  text-align: left;
+}
+
+.s-schedule__row {
+  display: flex;
+  gap: var(--space-sm);
+  font-family: var(--font-pro);
+  font-size: var(--size-item-text);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.s-schedule__time {
+  flex-shrink: 0;
+  font-weight: 700;
+  min-width: 130px;
+}
+
+.s-schedule__desc {
+  flex: 1;
+}
+
+
+/* ============================================================
+   8. SECTION 5 – BANNER
+============================================================ */
+
+.s-banner {
+  width: 100%;
+  padding: 0 0 var(--space-md);
+  background-color: var(--color-bg-light);
+  text-align: center;
+}
+
+.s-banner__title {
+  font-family: var(--font-rounded);
+  font-size: var(--size-menu-title);
+  font-weight: 400;
+  letter-spacing: var(--tracking-wide);
+  color: var(--color-bg-brand);
+  margin-bottom: var(--space-md);
+}
+
+.s-banner__wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+  line-height: 0;
+}
+
+.s-banner__link-main {
+  display: block;
+  line-height: 0;
+}
+
+.s-banner__img {
+  width: 100%;
+  height: auto;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  transition: opacity 0.15s ease;
+}
+
+/* Invisible overlay button positioned over the YouTube area of the banner image */
+.s-banner__overlay-btn {
+  position: absolute;
+  left: 5.13%;
+  top: 76%;
+  width: 89.74%;
+  height: 16%;
+  z-index: 2;
+  border-radius: var(--btn-radius);
+}
+
+.s-banner__link-main:active .s-banner__img,
+.s-banner__wrapper:active .s-banner__img {
+  opacity: 0.8;
+}
+
+
+/* ============================================================
+   9. SECTION 6 – SOCIAL MEDIA
 ============================================================ */
 
 .s-social {
-  width: 100%;
-  padding: var(--space-xl) var(--space-md);
+  width: calc(100% - 32px);
+  margin: 0 16px;
+  padding: var(--space-xl) var(--space-md) var(--space-sm);
   background-color: var(--color-bg-brand);
   text-align: center;
+  border-radius: var(--btn-radius) var(--btn-radius) 0 0;
 }
 
 .s-social__title {
@@ -298,19 +381,19 @@ img {
 
 .s-social__icons {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  gap: clamp(6px, 2.5vw, 14px);
-  padding: 0 var(--space-md);
+  width: 100%;
+  padding: 0;
   flex-wrap: nowrap;
-  overflow: visible;
+  gap: 0;
 }
 
 .s-social__link {
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
+  flex: 1;
   transition: opacity 0.15s ease;
 }
 
@@ -318,28 +401,30 @@ img {
   opacity: 0.7;
 }
 
+/*
+  Icon size reduced from clamp(47px, 11vw, 65px) to clamp(36px, 9vw, 50px)
+  to accommodate 6 icons evenly within the 480px max-width container.
+*/
 .s-social__icon {
-  width: clamp(36px, 8.5vw, 50px);
-  height: clamp(36px, 8.5vw, 50px);
-  /* Tints SVG white regardless of original color */
+  width: clamp(36px, 9vw, 50px);
+  height: clamp(36px, 9vw, 50px);
   filter: brightness(0) invert(1);
 }
 
 
 /* ============================================================
-   8. SECTION 5 – FOOTER
-   → Logos: images/logo-summoners-war.svg + logo-com2us.svg
-   → Logos are tinted white via CSS filter
-   → To resize: update .s-footer__logo--sw and --com2us widths
+  10. SECTION 7 – FOOTER
 ============================================================ */
 
 .s-footer {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 var(--space-md) var(--space-xl);
+  padding: var(--space-xs) var(--space-md) var(--space-md);
   gap: 20px;
   background-color: var(--color-bg-brand);
+  width: calc(100% - 32px);
+  margin: 0 16px;
 }
 
 .s-footer__link {
@@ -348,7 +433,6 @@ img {
 }
 
 .s-footer__logo {
-  /* Tints SVG white regardless of original color */
   filter: brightness(0) invert(1);
   height: auto;
 }

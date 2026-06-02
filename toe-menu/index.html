@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="de">
 
 <head>
   <meta charset="UTF-8" />
@@ -13,7 +13,10 @@
       1. Hero       → images/hero.png + hero@2x.png
       2. Title      → images/city.png + city@2x.png
       3. Menu       → Plain text, fonts loaded via @font-face
-      4. Footer     → images/logo-summoners-war.svg, logo-com2us.svg
+      4. Schedule   → Zeitplan
+      5. Banner     → images/banner1.png + banner1@2x.png
+      6. Social     → SVG icons
+      7. Footer     → images/logo-summoners-war.svg, logo-com2us.svg
 
     TO UPDATE CONTENT:
       - Swap images: replace files in /images/ (keep filenames the same)
@@ -29,8 +32,6 @@
 
   <!-- ============================================================
     SECTION 1: HERO IMAGE
-    → Swap image: replace hero.png + hero@2x.png in /images/
-    → Update width/height to match new image dimensions (prevents layout shift)
   ============================================================ -->
   <section class="s-hero">
     <img
@@ -48,12 +49,8 @@
 
   <!-- ============================================================
     SECTION 2: TITLE
-    → Swap city image: replace city.png + city@2x.png in /images/
-    → Update button labels and links directly below
   ============================================================ -->
   <section class="s-titel">
-
-    <!-- City name as image (custom font) -->
     <img
       src="images/city.png"
       srcset="images/city.png 1x, images/city@2x.png 2x"
@@ -65,133 +62,199 @@
       decoding="async"
     />
 
-    <!-- Event buttons → update href to change destination -->
     <a
-      href="https://forms.gle/mb6EynsDam2GENsE6"
+      href="https://docs.google.com/forms/d/e/1FAIpQLScCSwwMgMdONuGFl5eCd3mS1ck8fhgiiDZ38riWLOYpa3Bovg/viewform"
       class="s-titel__btn"
       target="_blank"
       rel="noopener noreferrer"
-    >TOMBOLA</a>
+    >RAFFLE</a>
 
     <a
-      href="https://forms.gle/fTKnccDUmbNc1Td18"
+      href="https://forms.gle/ijScVPAvm8NBuG6w6"
       class="s-titel__btn"
       target="_blank"
       rel="noopener noreferrer"
     >RAKAN EVENT</a>
-
   </section>
 
 
   <!-- ============================================================
     SECTION 3: MENU
-    → Edit text directly here
-    → Add new category: copy an <h3 class="s-menu__category"> block
-    → Add new item: copy a <div class="s-menu__item"> block
   ============================================================ -->
   <section class="s-menu">
-
     <h2 class="s-menu__title">MENU</h2>
     <p class="s-menu__subtitle">
-      Liste des boissons et burgers disponibles avec les coupons
+      Freie Speisen und Getränke mit Gutschein
     </p>
 
+    <h3 class="s-menu__category">Softgetränke</h3>
+    <div class="s-menu__item">
+      <p class="s-menu__item-text">Mineral Wasser | Cola | Cola Zero | Schorle | Slushies</p>
+    </div>
 
-    <!-- CATEGORY: BOISSONS -->
-    <h3 class="s-menu__category">Boissons</h3>
+    <h3 class="s-menu__category">SPEISEN</h3>
 
     <div class="s-menu__item">
-      <p class="s-menu__item-title">Jus de Fruits</p>
-      <p class="s-menu__item-text">Orange | Ananas | Pomme | Cranberry</p>
+      <p class="s-menu__item-title">VORSPEISE:</p>
+      <p class="s-menu__item-text">Mais-Jalapeño-Suppe</p>
     </div>
 
     <div class="s-menu__item">
-      <p class="s-menu__item-title">Soft</p>
-      <p class="s-menu__item-text">Pepsi | Pepsi Max | 7UP | Orangina | Ginger Beer | Schweppes Tonic | Lipton Ice Tea</p>
+      <p class="s-menu__item-title">HAUPTGÄNGE ZUR AUSWAHL:</p>
+
+      <p class="s-menu__item-text"><strong>Pulled Pork Sandwich</strong></p>
+      <p class="s-menu__item-text">Weiches Brötchen, rauchiges Pulled Pork, etwas Senf und rote Zwiebeln</p>
+
+      <hr class="s-menu__divider" />
+
+      <p class="s-menu__item-text"><strong>Fried Chicken Sandwich</strong></p>
+      <p class="s-menu__item-text">Knuspriges gebratenes Hähnchen, Coleslaw und Dijonnaise</p>
+
+      <hr class="s-menu__divider" />
+
+      <p class="s-menu__item-text"><strong>Jackfruit Sandwich</strong></p>
+      <p class="s-menu__item-text">Vegetarisches Pulled Pork, BBQ-Sauce und rote Zwiebeln</p>
+
+      <hr class="s-menu__divider" />
+
+      <p class="s-menu__item-text"><strong>Blumenkohl</strong></p>
+      <p class="s-menu__item-text">Veganes Blumenkohlpüree, angeröstete Röschen, Limette und Balsamico</p>
+
+      <hr class="s-menu__divider" />
+
+      <p class="s-menu__item-text"><strong>Mit Beilagen nach Wahl:</strong></p>
+      <p class="s-menu__item-text">Knackiges Kohl-Karotten-Duo mit cremigem Dressing</p>
+      <p class="s-menu__item-text"><strong>oder</strong></p>
+      <p class="s-menu__item-text">Doppelt frittierte Pommes mit Schale</p>
     </div>
 
     <div class="s-menu__item">
-      <p class="s-menu__item-title">Bouteilles</p>
-      <p class="s-menu__item-text">Red Bull (Energy, Sugar Free, Red Edition Pastèque) (25cl) | Eau Minérale (50cl) | Perrier (33cl) | Pepsi / Pepsi Max (33cl)</p>
+      <p class="s-menu__item-title">DESSERT</p>
+      <p class="s-menu__item-text">Mousse au Chocolat</p>
     </div>
-
-
-    <!-- CATEGORY: LES BURGERS -->
-    <h3 class="s-menu__category">Les Burgers</h3>
-
-    <div class="s-menu__item">
-      <p class="s-menu__item-title">Veggie Classic</p>
-      <p class="s-menu__item-text">Burger végétarien ! Steak végétal grillé garni de fromage cheddar fondu et ketchup.</p>
-    </div>
-
-    <div class="s-menu__item">
-      <p class="s-menu__item-title">Fried Chicken Sandwich</p>
-      <p class="s-menu__item-text">L'authentique crispy american fried chicken ! Poulet croustillant frit avec un coleslaw et notre mayo à l'ail maison.</p>
-    </div>
-
-    <div class="s-menu__item">
-      <p class="s-menu__item-title">The House Classic</p>
-      <p class="s-menu__item-text">Notre burger classique servi avec un steak de boeuf grillé à la perfection, fromage cheddar fondu et ketchup.</p>
-    </div>
-
-
-    <p class="s-menu__note">
-      Consultez la carte de l'établissement pour voir le reste du menu
-    </p>
-
   </section>
 
 
   <!-- ============================================================
-    SECTION 4: SOCIAL MEDIA
-    → Update links: change href attributes
-    → Swap icons: replace SVG files in /images/
-    → Icon order (left to right): instagram, discord, tiktok, twitter, facebook
+    SECTION 4: SCHEDULE / ZEITPLAN
+  ============================================================ -->
+  <section class="s-menu s-schedule">
+    <h2 class="s-menu__title">Zeitplan</h2>
+    <div class="s-schedule__list">
+      <div class="s-schedule__row">
+        <span class="s-schedule__time">14:00 – 15:00</span>
+        <span class="s-schedule__desc">Einlass</span>
+      </div>
+      <div class="s-schedule__row">
+        <span class="s-schedule__time">15:00 – 15:15</span>
+        <span class="s-schedule__desc">Eröffnungsrede</span>
+      </div>
+      <div class="s-schedule__row">
+        <span class="s-schedule__time">15:15 – 16:30</span>
+        <span class="s-schedule__desc">Missionen / Chimären Challenge #1 / Gruppenfoto</span>
+      </div>
+      <div class="s-schedule__row">
+        <span class="s-schedule__time">16:30 – 17:15</span>
+        <span class="s-schedule__desc">Quiz</span>
+      </div>
+      <div class="s-schedule__row">
+        <span class="s-schedule__time">17:15 – 18:00</span>
+        <span class="s-schedule__desc">Chimären Challenge #2 / Summon Session</span>
+      </div>
+      <div class="s-schedule__row">
+        <span class="s-schedule__time">18:00 – 18:30</span>
+        <span class="s-schedule__desc">Freizeit / Mini-Spiele</span>
+      </div>
+      <div class="s-schedule__row">
+        <span class="s-schedule__time">18:30 – 19:30</span>
+        <span class="s-schedule__desc">Chimären Challenge #3 / 2v2 mit Influencern</span>
+      </div>
+      <div class="s-schedule__row">
+        <span class="s-schedule__time">19:30 – 20:30</span>
+        <span class="s-schedule__desc">Raffle-Gewinner Bekanntgabe / Chimären Raffle</span>
+      </div>
+      <div class="s-schedule__row">
+        <span class="s-schedule__time">20:30 – End</span>
+        <span class="s-schedule__desc">Freizeit / Event Ende</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+    SECTION 5: BANNER
+  ============================================================ -->
+  <section class="s-banner">
+    <h2 class="s-banner__title">nicht verpassen:</h2>
+
+    <div class="s-banner__wrapper">
+      <!-- Haupt-Link für das gesamte Bild (außer dem YouTube-Bereich) -->
+      <a
+        href="https://summonerswar.com/de/skyarena/news/list/6635?page=1&category=others"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="s-banner__link-main"
+        aria-label="Summoners War News"
+      >
+        <img
+          src="images/banner1.png"
+          srcset="images/banner1.png 1x, images/banner1@2x.png 2x"
+          alt="Summoners War – Verpasse nichts"
+          class="s-banner__img"
+          width="390"
+          height="390"
+          loading="lazy"
+          decoding="async"
+        />
+      </a>
+
+      <!-- Unsichtbarer Overlay-Button für den YouTube-Link -->
+      <a
+        href="https://www.youtube.com/@Summoners_War_DE"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="s-banner__overlay-btn"
+        aria-label="Summoners War YouTube-Kanal"
+        title="Zum YouTube-Kanal"
+      ></a>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+    SECTION 6: SOCIAL MEDIA
   ============================================================ -->
   <section class="s-social">
-
-    <p class="s-social__title">SUIVEZ-NOUS SUR</p>
-
+    <p class="s-social__title">Folge uns auf</p>
     <div class="s-social__icons">
-
-      <a href="https://www.instagram.com/summonerswar_fr/" class="s-social__link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+      <a href="https://www.instagram.com/summonerswar_de/" class="s-social__link" target="_blank" rel="noopener noreferrer" aria-label="Instagram Summoners War DE">
         <img src="images/instagram.svg" alt="Instagram" class="s-social__icon" />
       </a>
-
-      <a href="https://www.instagram.com/com2us_fr" class="s-social__link" target="_blank" rel="noopener noreferrer" aria-label="Instagram FR">
-        <img src="images/instagram_fr.svg" alt="Instagram FR" class="s-social__icon" />
+      <a href="https://www.instagram.com/com2us_de/" class="s-social__link" target="_blank" rel="noopener noreferrer" aria-label="Instagram com2us DE">
+        <img src="images/instagram_de.svg" alt="Instagram com2us DE" class="s-social__icon" />
       </a>
-
-      <a href="https://discord.gg/swofficial" class="s-social__link" target="_blank" rel="noopener noreferrer" aria-label="Discord">
+      <a href="https://www.youtube.com/@Summoners_War_DE" class="s-social__link" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+        <img src="images/youtube.svg" alt="YouTube" class="s-social__icon" />
+      </a>
+      <a href="https://discord.com/invite/swofficial" class="s-social__link" target="_blank" rel="noopener noreferrer" aria-label="Discord">
         <img src="images/discord.svg" alt="Discord" class="s-social__icon" />
       </a>
-
-      <a href="https://www.tiktok.com/@summonerswar_fr" class="s-social__link" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+      <a href="https://www.tiktok.com/@summonerswar_de" class="s-social__link" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
         <img src="images/tiktok.svg" alt="TikTok" class="s-social__icon" />
       </a>
-
-      <a href="https://x.com/summonerswar_FR" class="s-social__link" target="_blank" rel="noopener noreferrer" aria-label="Twitter / X">
-        <img src="images/twitter.svg" alt="Twitter / X" class="s-social__icon" />
-      </a>
-
-      <a href="https://www.facebook.com/Summonersfr" class="s-social__link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+      <a href="https://www.facebook.com/summonerde/" class="s-social__link" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
         <img src="images/facebook.svg" alt="Facebook" class="s-social__icon" />
       </a>
-
     </div>
-
   </section>
 
 
   <!-- ============================================================
-    SECTION 5: FOOTER
-    → Swap logos: replace SVG files in /images/
-    → Update links: change href attributes
+    SECTION 7: FOOTER
   ============================================================ -->
   <footer class="s-footer">
-
     <a
-      href=" https://summonerswar.com/12thanniv"
+      href="https://summonerswar.com/12thanniv"
       class="s-footer__link"
       target="_blank"
       rel="noopener noreferrer"
@@ -221,7 +284,6 @@
         decoding="async"
       />
     </a>
-
   </footer>
 
 </body>
