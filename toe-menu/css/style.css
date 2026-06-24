@@ -61,8 +61,8 @@
   /* Colors */
   --color-white:        #ffffff;
   --color-bg-light:     #ffffff;
-  --color-bg-brand:     #afc538;
-  --color-bg-hero:      #afc538;
+  --color-bg-brand:     #ecc500;
+  --color-bg-hero:      #ecc500;
 
   /* Typography */
   --font-rounded:       'BebasNeueSemiRounded', sans-serif;
@@ -254,6 +254,16 @@ img {
   font-weight: 500;
   line-height: 1.6;
   overflow-wrap: break-word;
+}
+
+/* Modifier: adds top spacing before a text paragraph */
+.s-menu__item-text--spaced {
+  margin-top: var(--space-sm);
+}
+
+/* Modifier: italic text paragraph */
+.s-menu__item-text--italic {
+  font-style: italic;
 }
 
 /* Semantic divider between menu items – replaces the old modifier class on <p> */
